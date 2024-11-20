@@ -1,16 +1,3 @@
-#define NULL 0
-struct EFI_SYSTEM_TABLE                *ST;
-struct EFI_BOOT_SERVICES               *BS;
-struct EFI_GRAPHICS_OUTPUT_PROTOCOL    *GOP;
-struct EFI_SIMPLE_FILE_SYSTEM_PROTOCOL *SFSP;
-struct EFI_LOADED_IMAGE_PROTOCOL       *LIP;
-void efi_init(struct EFI_SYSTEM_TABLE *SystemTable) {
-  ST = SystemTable;
-  BS = SystemTable->BootServices;
-
-  // 初始化
-  BS->SetWatchdogTimer(0, 0, 0, NULL); // 别删，不然UEFI会自动重启
-}
 struct EFI_INPUT_KEY {
     unsigned short ScanCode;
     unsigned short UnicodeChar;
